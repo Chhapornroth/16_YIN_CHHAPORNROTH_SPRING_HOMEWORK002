@@ -1,17 +1,17 @@
-CREATE TABLE instructors (
+CREATE TABLE IF NOT EXISTS instructors (
     instructor_id SERIAL8 PRIMARY KEY,
     instructor_name VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE students (
+CREATE TABLE IF NOT EXISTS students (
     student_id SERIAL8 PRIMARY KEY,
     student_name VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     phone_number VARCHAR(15)
 );
 
-CREATE TABLE courses (
+CREATE TABLE IF NOT EXISTS courses (
     course_id SERIAL8 PRIMARY KEY,
     course_name VARCHAR(100) NOT NULL,
     description VARCHAR,
@@ -23,7 +23,7 @@ CREATE TABLE courses (
         ON DELETE CASCADE
 );
 
-CREATE TABLE student_courses(
+CREATE TABLE IF NOT EXISTS student_courses(
     id SERIAL8 PRIMARY KEY,
     student_id INT8 NOT NULL,
     course_id INT8 NOT NULL,
