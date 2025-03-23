@@ -23,5 +23,9 @@ public class StudentRequest {
     private String phoneNumber;
 
     @NotNull(message = "Course Id is required!!!")
-    private Set<Long> courseIds;
+    private Set<
+            @Min(value = 1, message = "min is 1.")
+            @Max(value = Long.MAX_VALUE, message = "Id can only contain maximum of Long!!!")
+            Long
+            > courseIds;
 }
